@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Docss</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<section class="my-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 mx-auto border">
+					<h2>Admin Upload</h2>
+					<br>
+					<p th:text="${message}" th:if="${message ne null}"
+						class="alert alert-primary"></p>
+					<form method="post" th:action="@{/upload}" th:object="${subject}"
+						enctype="multipart/form-data">
+
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-4">
+									<label>Select Year</label> <select th:name="year"
+										class="form-control" id="year" th:required="true">
+										<option value="">Select Year</option>
+										<option value="1">First Year</option>
+										<option value="2">Second Year</option>
+										<option value="3">Third Year</option>
+										<option value="4">Fourth Year</option>
+									</select>
+								</div>
+								<div class="col-md-4">
+									<label>Select Order for display</ label> <select
+										th:name="orderForDisplay" class="form-control"
+										id="orderForDisplay" th:required="true">
+											<option value="">Select Order</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+									</select>
+								</div>
+								<div class="col-md-4">
+									<label>Course Name</label> <input class="form-control"
+										type="text" id="courseName" name="courseName"
+										placeholder="Enter course name" required="required" />
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="col-md-4">
+							<label>Select file to upload</label> <input type="file"
+								name="file" class="form-control-file" th:required="true">
+						</div>
+						<br>
+						<div class="col-md-12" align="center">
+							<button type="submit" class="btn btn-primary">Upload
+								File</button>
+						</div>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>
